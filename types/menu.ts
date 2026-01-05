@@ -1,4 +1,4 @@
-export type MenuCategorySlug = 
+export type MenuCategorySlug =
   | 'coffee-based'
   | 'non-coffee-based'
   | 'mocktail'
@@ -12,6 +12,15 @@ export interface MenuItem {
   price: number;
   image: string;
   category: MenuCategorySlug;
+
+  // Admin Fields
+  is_available?: boolean;
+  is_promo?: boolean;
+  promo_price?: number;
+  promo_start?: string; // ISO Date
+  promo_end?: string;   // ISO Date
+  created_at?: string;
+  updated_at?: string;
 }
 
 export const CATEGORIES: { slug: MenuCategorySlug; label: string }[] = [

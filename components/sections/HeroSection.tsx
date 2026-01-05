@@ -1,8 +1,13 @@
 "use client";
+import OpeningHoursSection from './OpeningHoursSection';
 import { motion } from 'framer-motion';
 import { ArrowRight, Coffee } from 'lucide-react';
+import { useOpeningStatus } from '@/hooks/useOpeningStatus';
 
 export default function HeroSection() {
+  const { status } = useOpeningStatus();
+  const isOpen = status?.status === 'OPEN';
+  const glowColor = isOpen ? '#006041' : '#EF4444';
   return (
     <section className="relative min-h-screen flex items-center pt-20 bg-gradient-to-br from-fore-surface to-white overflow-hidden">
 
@@ -23,6 +28,25 @@ export default function HeroSection() {
             <span className="relative z-10">Menu Spesial: Kopi ✨</span>
             <div className="absolute inset-0 bg-white/40 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
           </div>
+
+          <motion.div
+            animate={{ scale: [1, 1.02, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-fit relative group cursor-pointer rounded-2xl overflow-hidden p-[1.5px]"
+          >
+            {/* Border Beam Effect: Spinning gradient with transparent tail */}
+            <div
+              className="absolute inset-[-100%] animate-[spin_4s_linear_infinite]"
+              style={{
+                background: `conic-gradient(from 90deg at 50% 50%, #00000000 50%, ${glowColor} 100%)`
+              }}
+            />
+
+            {/* Inner Content */}
+            <div className="relative bg-white rounded-2xl h-full w-full">
+              <OpeningHoursSection />
+            </div>
+          </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-heading font-bold text-gray-900 leading-tight mb-6">
             Budayakan <span className="text-fore-primary">Malas Ngopi Di Rumah.</span> <br />
