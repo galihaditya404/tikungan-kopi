@@ -2,6 +2,8 @@
 import React from 'react';
 import { Coffee, DollarSign, TrendingUp, Users, Plus, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import CalendarWidget from '@/components/admin/CalendarWidget';
+import RecentActivityWidget from '@/components/admin/RecentActivityWidget';
 
 export default function AdminDashboard() {
   const stats = [
@@ -81,19 +83,10 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-          <h3 className="font-bold text-gray-900 mb-6 font-heading">Recent Activity</h3>
-          <div className="space-y-6">
-            {[1, 2, 3].map((_, i) => (
-              <div key={i} className="flex gap-4 items-start">
-                <div className="w-2 h-2 rounded-full bg-fore-secondary mt-2 flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-medium text-gray-900">New menu item added</p>
-                  <p className="text-xs text-gray-400 mt-1">2 hours ago</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="space-y-8">
+          <CalendarWidget />
+
+          <RecentActivityWidget />
         </div>
       </div>
     </div>
