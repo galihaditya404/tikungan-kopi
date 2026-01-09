@@ -50,12 +50,12 @@ export default function MenuTable({ items, onDelete, onToggleStatus }: MenuTable
                   <button
                     onClick={() => onToggleStatus(item.id)}
                     className={`pl-2 pr-3 py-1 inline-flex items-center gap-1.5 text-xs leading-5 font-bold rounded-full cursor-pointer transition-all ${item.is_available
-                        ? 'bg-green-100 text-green-700 hover:bg-green-200'
-                        : 'bg-red-100 text-red-700 hover:bg-red-200'
+                      ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                      : 'bg-red-100 text-red-700 hover:bg-red-200'
                       }`}
                   >
                     <span className={`w-2 h-2 rounded-full ${item.is_available ? 'bg-green-500' : 'bg-red-500'}`} />
-                    {item.is_available ? 'Active' : 'Inactive'}
+                    {item.is_available ? 'Tersedia' : 'Habis'}
                   </button>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

@@ -38,8 +38,6 @@ export async function middleware(request: NextRequest) {
     } = await supabase.auth.getUser();
 
     // 2. Admin Route Protection Logic
-    /*
-    // TEMPORARY BYPASS: Auth check disabled as per user request ("no login page")
     if (request.nextUrl.pathname.startsWith('/admin')) {
 
         // Case A: Not Authenticated -> Redirect to Login
@@ -64,7 +62,6 @@ export async function middleware(request: NextRequest) {
         // Case C: Authenticated AND Admin -> Proceed
         return response;
     }
-    */
 
     // Allow all other routes (public)
     return response;
