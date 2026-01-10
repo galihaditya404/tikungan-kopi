@@ -13,7 +13,7 @@ export function useMenu() {
       const { data, error } = await supabase
         .from('menus')
         .select('*')
-        .eq('is_available', true)
+        .order('category', { ascending: true }) // Optional: Better sorting? Or keep created_at
         .order('created_at', { ascending: false });
 
       if (error) {
