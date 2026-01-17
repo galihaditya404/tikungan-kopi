@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Tikungan Kopi - Modern & Bold',
+  title: 'Tikungan Kopi',
   description: 'Experience the finest local beans in an atmosphere of modern elegance.',
 };
 

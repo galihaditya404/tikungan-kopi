@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Coffee, Menu, X, Smartphone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -26,18 +27,21 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
+        : "bg-transparent py-5"
+        }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-fore-primary p-2 rounded-xl text-white group-hover:bg-fore-secondary transition-colors">
-             <Coffee className="w-5 h-5" />
-          </div>
+          <Image
+            src="/icon.png"
+            alt="Tikungan Kopi Logo"
+            width={40}
+            height={40}
+            className="rounded-xl group-hover:scale-105 transition-transform"
+          />
           <span className={`font-heading font-bold text-xl tracking-tight ${isScrolled ? "text-gray-900" : "text-gray-900"}`}>
             Tikungan<span className="text-fore-primary">Kopi</span>
           </span>
@@ -64,7 +68,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden text-gray-900"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
