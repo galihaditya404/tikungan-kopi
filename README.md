@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tikungan Kopi ☕️
 
-## Getting Started
+A modern, premium coffee shop web application built with **Next.js 16**, **Supabase**, and **Tailwind CSS**. It features a beautiful public-facing landing page and a secure, comprehensive admin dashboard for managing menus and settings.
 
-First, run the development server:
+## ✨ Features
 
+### 🌍 Public Interface
+- **Premium UI Design**: "Fore Coffee" inspired aesthetic with nature/coffee warm tones.
+- **Dynamic Menu**: Real-time menu fetching from Supabase.
+- **Opening Status Logic**: Automatically updates based on time (17:00 - 23:00) and day (Closed Tuesdays).
+- **Responsive Navigation**: Mobile-friendly with `framer-motion` animations.
+- **Location & Maps**: Integrated Google Maps section.
+
+### 🛡️ Admin Dashboard (`/admin`)
+- **Secure Authentication**: Protected routes via Middleware + Supabase Auth.
+- **Menu Management**: CRUD operations (Create, Read, Update, Delete) for menu items.
+- **Stock Control**: Quick toggle for "Availability" (displays "Habis" badge public-side).
+- **Dashboard Widgets**: Calendar and Recent Activity tracking.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
+- **Database & Auth**: [Supabase](https://supabase.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Font**: Outfit & DM Sans (Google Fonts)
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- A Supabase Project (Database + Auth + Storage)
+
+### 1. Clone & Install
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/galihaditya404/tikungan-kopi.git
+cd tikungan-kopi
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Setup
+Create a `.env.local` file in the root directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-## Learn More
+## 🗄️ Database Setup
 
-To learn more about Next.js, take a look at the following resources:
+Run the SQL scripts located in `supabase/` to set up your project:
+1.  **Schema**: `supabase/schema.sql` (Creates tables and policies)
+2.  **Storage**: `supabase/storage_setup.sql` (Creates 'menu-images' bucket)
+3.  **Admin User**: `supabase/create_admin_user.sql` (Creates admin credentials)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is optimized for deployment on **Vercel**.
 
-## Deploy on Vercel
+1.  Push to GitHub.
+2.  Import project in Vercel.
+3.  Add Environment Variables (`NEXT_PUBLIC_SUPABASE_URL`, etc).
+4.  Deploy.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See `deployment_guide.md` (if available) for detailed steps.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Built with ❤️ for **Tikungan Kopi**.
