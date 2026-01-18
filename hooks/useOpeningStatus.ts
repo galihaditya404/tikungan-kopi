@@ -53,8 +53,11 @@ export function useOpeningStatus() {
         closedDayIndex = parseInt(data.value);
       }
 
-      // 3. Check Weekly Rule
+      // 3. Check Weekly Rule & Time
       const day = now.getDay();
+      const currentHour = now.getHours();
+      const OPEN_HOUR = 17;
+      const CLOSE_HOUR = 23;
 
       if (day === closedDayIndex) {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -63,11 +66,23 @@ export function useOpeningStatus() {
           message: 'Closed Today',
           detail: `We take a break every ${days[closedDayIndex]}.`
         });
+      } else if (currentHour < OPEN_HOUR) {
+        setStatus({
+          status: 'CLOSED',
+          message: 'Opening Soon',
+          detail: `We open daily from ${OPEN_HOUR}:00 to ${CLOSE_HOUR}:00.`
+        });
+      } else if (currentHour >= CLOSE_HOUR) {
+        setStatus({
+          status: 'CLOSED',
+          message: 'Closed for Today',
+          detail: `We are closed. Open daily ${OPEN_HOUR}:00 - ${CLOSE_HOUR}:00.`
+        });
       } else {
         setStatus({
           status: 'OPEN',
-          message: 'Open Today',
-          detail: 'Come visit us! We are brewing.'
+          message: 'Open Now',
+          detail: `Come visit! We are open until ${CLOSE_HOUR}:00.`
         });
       }
     };
