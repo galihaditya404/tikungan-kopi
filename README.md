@@ -5,7 +5,7 @@ A modern, premium coffee shop web application built with **Next.js 16**, **Supab
 ## ✨ Features
 
 ### 🌍 Public Interface
-- **Premium UI Design**: "Fore Coffee" inspired aesthetic with nature/coffee warm tones.
+- **Premium UI Design**: Green & Soft  aesthetic with nature/coffee warm tones.
 - **Dynamic Menu**: Real-time menu fetching from Supabase.
 - **Opening Status Logic**: Automatically updates based on time (17:00 - 23:00) and day (Closed Tuesdays).
 - **Responsive Navigation**: Mobile-friendly with `framer-motion` animations.
