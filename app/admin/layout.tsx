@@ -1,12 +1,21 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { LayoutDashboard, Coffee, LogOut, Settings, Menu, X } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleLogout = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.replace('/'); // Using replace to prevent back-button access
+    router.refresh(); // Ensure server state (middleware) is re-evaluated
+  };
 
   const menu = [
     { name: 'Dashboard', icon: LayoutDashboard, href: '/admin' },
@@ -78,7 +87,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <p className="text-xs text-gray-400">admin@tikungan.com</p>
             </div>
           </div>
-          <button className="flex items-center gap-3 w-full px-4 py-3 text-red-200 hover:bg-red-500/20 hover:text-red-100 rounded-xl font-medium transition-colors">
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-3 w-full px-4 py-3 text-red-200 hover:bg-red-500/20 hover:text-red-100 rounded-xl font-medium transition-colors"
+          >
             <LogOut className="w-5 h-5" />
             Logout
           </button>

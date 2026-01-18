@@ -29,9 +29,14 @@ export default function LocationSection() {
                 </div>
               </div>
               <p className="text-xs text-gray-500 mb-4">Jl. Makam, Cebolek Kidul, Kec. Margoyoso, Pati, Jawa Tengah, Indonesia 59154</p>
-              <button className="w-full py-2.5 bg-fore-primary text-white text-sm font-bold rounded-xl hover:bg-fore-secondary transition-colors flex items-center justify-center gap-2">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Jl.+Makam,+Cebolek+Kidul,+Kec.+Margoyoso,+Pati,+Jawa+Tengah,+Indonesia+59154"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 bg-fore-primary text-white text-sm font-bold rounded-xl hover:bg-fore-secondary transition-colors flex items-center justify-center gap-2"
+              >
                 Get Directions <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
